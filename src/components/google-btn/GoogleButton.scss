@@ -1,6 +1,6 @@
 $white: #fff;
 $google-blue: #4285f4;
-$button-active-blue: #1669f2;
+$button-active: #1669f2;
 
 .google-btn {
   width: 184px;
@@ -37,6 +37,6 @@ $button-active-blue: #1669f2;
     box-shadow: 0 0 6px $google-blue;
   }
   &:active {
-    background: $button-active-blue;
+    background: $button-active;
   }
 }

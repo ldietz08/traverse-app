@@ -39,7 +39,6 @@ export default function Login() {
         <input
           className="login__form-body"
           type="email"
-          placeholder="Enter your email address"
           id="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +49,6 @@ export default function Login() {
         <input
           className="login__form-body"
           type="password"
-          placeholder="Enter your password"
           id="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -62,7 +60,9 @@ export default function Login() {
         </div>
         <div>
           <span className="login__form-text">New User?</span>
-          <Link to="/Signup">SIGN UP</Link>
+          <Link to="/Signup" className="login__form-link">
+            SIGN UP
+          </Link>
         </div>
         <GoogleButton />
       </div>

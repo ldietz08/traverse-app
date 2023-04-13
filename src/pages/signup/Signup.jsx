@@ -31,14 +31,13 @@ export default function Login() {
   return (
     <section className="signup__container">
       <div className="signup__form">
-        <h2 className="signup__title">Signup</h2>
+        <h2 className="signup__title">Sign up</h2>
         <label className="signup__form-label" htmlFor="email">
           Email
         </label>
         <input
           className="signup__form-body"
           type="email"
-          placeholder="Enter your email address"
           id="email"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
@@ -49,14 +48,15 @@ export default function Login() {
         <input
           className="signup__form-body"
           type="password"
-          placeholder="Enter your password"
           id="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <div>
           <span className="signup__form-text">Already have an account?</span>
-          <Link to="/Login">LOGIN</Link>
+          <Link to="/Login" className="signup__form-link">
+            LOGIN
+          </Link>
         </div>
       </div>
     </section>
