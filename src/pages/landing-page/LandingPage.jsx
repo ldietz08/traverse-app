@@ -46,7 +46,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div className="cta">
-        <h2>Ready to Start Hiking?</h2>
+        <h2 className="cta__title">Ready to Start Hiking?</h2>
         <Link to="/signup">
           <Button text="signup" />
         </Link>
