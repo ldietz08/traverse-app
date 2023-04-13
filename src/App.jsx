@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Header from "./components/header/Header";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 import LandingPage from "./pages/landing-page/LandingPage";
-import Auth from "./components/Auth";
+import Auth from "./pages/login/Login";
 import "./App.scss";
 
 export default function App() {
@@ -13,7 +15,8 @@ export default function App() {
           <Header />
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="signup" element={<Auth />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
           </Routes>
         </BrowserRouter>
       </div>

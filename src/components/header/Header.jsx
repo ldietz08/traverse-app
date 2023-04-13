@@ -2,12 +2,22 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Header.scss";
 import TraverseLogo from "../../assets/logo/traverse-logo.png";
+import { auth } from "../../components/config/firebase";
+import { signOut } from "firebase/auth";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -59,6 +69,7 @@ export default function Header() {
               </Link>
               {/* )} */}
             </ul>
+            {/* <button onClick={logout}>Log out</button> */}
           </nav>
         </div>
       </header>
