@@ -40,36 +40,39 @@ export default function Header() {
           </button>
           <nav className={`navBar ${showMenu ? "show" : ""}`}>
             <ul className="navBar__list">
-              {/* {isAuth && ( */}
-              <>
-                <Link className="navBar__list-link" to="/">
-                  <li className="navBar__list-item">Home</li>
-                </Link>
-                <Link className="navBar__list-link" to="/favorites">
-                  <li className="navBar__list-item">Favorites</li>
-                </Link>
-                <Link className="navBar__list-link" to="/bulletin">
-                  <li className="navBar__list-item">Bulletin</li>
-                </Link>
-              </>
-              {/* )} */}
-              {/* {!isAuth ? ( */}
-              <>
+              {!auth && (
+                <>
+                  <Link className="navBar__list-link" to="/">
+                    <li className="navBar__list-item">Home</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/favorites">
+                    <li className="navBar__list-item">Favorites</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/bulletin">
+                    <li className="navBar__list-item">Bulletin</li>
+                  </Link>
+                </>
+              )}
+              {auth ? (
+                <>
+                  <Link className="navBar__list-link" to="/login">
+                    <li className="navBar__list-item navBar__auth">Login</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/signup">
+                    <li className="navBar__list-item navBar__auth">Sign up</li>
+                  </Link>
+                </>
+              ) : (
                 <Link className="navBar__list-link" to="/login">
-                  <li className="navBar__list-item navBar__auth">Login</li>
+                  <button
+                    onClick={logout}
+                    className="navBar__list-item navBar__auth"
+                  >
+                    Logout
+                  </button>
                 </Link>
-                <Link className="navBar__list-link" to="/signup">
-                  <li className="navBar__list-item navBar__auth">Sign up</li>
-                </Link>
-              </>
-              {/* ) : ( */}
-              <Link className="navBar__list-link" to="/login">
-                <li className="navBar__list-item navBar__auth">Logout</li>
-                {/* onClick={handleLogout} */}
-              </Link>
-              {/* )} */}
+              )}
             </ul>
-            {/* <button onClick={logout}>Log out</button> */}
           </nav>
         </div>
       </header>

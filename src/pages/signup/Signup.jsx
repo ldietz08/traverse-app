@@ -9,12 +9,15 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Signup.scss";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = async () => {
+  const signIn = async (e) => {
+    e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/hero");
     } catch (err) {
       console.error(err);
     }
@@ -52,6 +55,9 @@ export default function Login() {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        <button onClick={signIn} className="login__form-btn">
+          SIGN UP
+        </button>
         <div>
           <span className="signup__form-text">Already have an account?</span>
           <Link to="/Login" className="signup__form-link">

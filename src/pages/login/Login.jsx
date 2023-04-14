@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { auth, googleProvider } from "../../components/config/firebase";
 import {
-  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -10,12 +10,15 @@ import GoogleButton from "../../components/google-btn/GoogleButton";
 import "./Login.scss";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = async () => {
+  const signIn = async (e) => {
+    e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/hero");
     } catch (err) {
       console.error(err);
     }
