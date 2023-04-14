@@ -7,9 +7,9 @@ import Button from "../../components/button/Button";
 export default function LandingPage() {
   return (
     <main className="main">
-      <div className="hero">
-        <h1 className="hero__title">Discover Your Next Adventure</h1>
-        <p className="hero__body">
+      <div className="main__body">
+        <h1 className="main__title">Discover Your Next Adventure</h1>
+        <p className="main__text">
           Find new hiking trails and connect with fellow hikers.
         </p>
         <Link to="/signup">
