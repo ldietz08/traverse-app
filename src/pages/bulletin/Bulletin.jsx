@@ -5,15 +5,66 @@ import User from "../../assets/icons/user.png";
 import Envelope from "../../assets/icons/envelope.svg";
 import Trash from "../../assets/icons/trash-can.svg";
 import Hikers from "../../assets/images/hikers.png";
+import { db } from "../../components/config/firebase";
+import {
+  getDocs,
+  collection,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 
-const Bulletin = ({ isAuth }) => {
+export default function Bulletin() {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [hikeName, setHikeName] = useState("");
-  const [userMessage, setUserMessage] = useState("");
+  const [userPost, setUserPost] = useState("");
+
   const [users, setUsers] = useState([]);
   const [openMessage, setOpenMessage] = useState(false);
-  const navigate = useNavigate();
-  const container = useRef(null);
+  const [posts, setPosts] = useState([]);
+
+  //Reference the collection
+  const postsCollectionRef = collection(db, "posts");
+
+  const getPosts = async () => {
+    try {
+      const data = await getDocs(postsCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setPosts(filteredData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, [deletePost]);
+
+  const addPost = async (e) => {
+    e.preventDefault();
+    try {
+      await addDoc(postsCollectionRef, {
+        userName: userName,
+        hikeName: hikeName,
+        content: userPost,
+      });
+      const form = document.querySelector(".form");
+      form.reset();
+      getPosts();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const deletePost = async (id) => {
+    const postDoc = doc(db, "posts", id);
+    await deleteDoc(postDoc);
+  };
 
   return (
     <>
@@ -32,7 +83,7 @@ const Bulletin = ({ isAuth }) => {
               />
               <input
                 className="bulletin__input"
-                placeholder="Hike (optional)"
+                placeholder="Hike"
                 onChange={(e) => {
                   setHikeName(e.target.value);
                 }}
@@ -41,19 +92,21 @@ const Bulletin = ({ isAuth }) => {
                 className="bulletin__input-body"
                 placeholder="Have something to share with the community?"
                 onChange={(e) => {
-                  setUserMessage(e.target.value);
+                  setUserPost(e.target.value);
                 }}
               />
               <div className="btn__wrapper">
-                <button className="btn">Post</button>
+                <button className="btn" onClick={addPost}>
+                  Post
+                </button>
               </div>
             </form>
           </div>
         </div>
         <section className="bulletin__post">
-          {users.map((user) => {
+          {posts.map((post) => {
             return (
-              <div className="bulletin__wrapper" key={user.id}>
+              <div className="bulletin__wrapper" key={post.id}>
                 <div className="bulletin__user">
                   <div>
                     <img
@@ -63,17 +116,20 @@ const Bulletin = ({ isAuth }) => {
                     ></img>
                   </div>
                   <div>
-                    <h1>{user.name}</h1>
+                    <h1>{post.userName}</h1>
                   </div>
                   <div className="bulletin__date">
                     <h1>{new Date().toLocaleDateString()}</h1>
                   </div>
                 </div>
-                <h3>{user.hike}</h3>
+                <h3>{post.hikeName}</h3>
                 <div className="bulletin__user-post">
-                  <p className="bulletin__content">{user.post}</p>
+                  <p className="bulletin__content">{post.content}</p>
                 </div>
-                <button className="btn--delete">
+                <button
+                  className="btn--delete"
+                  onClick={() => deletePost(post.id)}
+                >
                   <img src={Trash} alt="Trash can icon"></img>
                 </button>
               </div>
@@ -89,7 +145,7 @@ const Bulletin = ({ isAuth }) => {
                 ></img>
               </div>
               <div>
-                <h1>Nina</h1>
+                <h1>Layla</h1>
               </div>
               <div className="bulletin__date">
                 <h1>12/13/22</h1>
@@ -277,6 +333,4 @@ const Bulletin = ({ isAuth }) => {
       </section>
     </>
   );
-};
-
-export default Bulletin;
+}
