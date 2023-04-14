@@ -1,4 +1,4 @@
-import "./Hero.scss";
+import "./Explore.scss";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
