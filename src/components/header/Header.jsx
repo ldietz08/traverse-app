@@ -40,19 +40,19 @@ export default function Header() {
           </button>
           <nav className={`navBar ${showMenu ? "show" : ""}`}>
             <ul className="navBar__list">
-              {!auth && (
-                <>
-                  <Link className="navBar__list-link" to="/">
-                    <li className="navBar__list-item">Home</li>
-                  </Link>
-                  <Link className="navBar__list-link" to="/favorites">
-                    <li className="navBar__list-item">Favorites</li>
-                  </Link>
-                  <Link className="navBar__list-link" to="/bulletin">
-                    <li className="navBar__list-item">Bulletin</li>
-                  </Link>
-                </>
-              )}
+              {/* {!auth && ( */}
+              <>
+                <Link className="navBar__list-link" to="/">
+                  <li className="navBar__list-item">Home</li>
+                </Link>
+                <Link className="navBar__list-link" to="/favorites">
+                  <li className="navBar__list-item">Favorites</li>
+                </Link>
+                <Link className="navBar__list-link" to="/bulletin">
+                  <li className="navBar__list-item">Bulletin</li>
+                </Link>
+              </>
+              {/* )} */}
               {auth ? (
                 <>
                   <Link className="navBar__list-link" to="/login">
