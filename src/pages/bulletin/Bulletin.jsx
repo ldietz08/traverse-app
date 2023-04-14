@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import User from "../../assets/icons/user.png";
 import Envelope from "../../assets/icons/envelope.svg";
 import Trash from "../../assets/icons/trash-can.svg";
-import Hikers from "../../assets/images/hikers.png";
+import Hikers from "../../assets/images/hikers-animated.png";
 import { db, auth } from "../../components/config/firebase";
 import {
   getDocs,
