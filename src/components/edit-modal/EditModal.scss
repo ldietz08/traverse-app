@@ -4,7 +4,7 @@
 @use "../../styles/partials/fonts";
 
 .modal {
-  color: $primary-white;
+  color: $darkblue;
   font-size: 1.5rem;
   position: fixed;
   top: 0;
@@ -17,14 +17,17 @@
   align-items: center;
   z-index: 999;
   &__container {
-    background-color: $lightblue;
+    background-color: $secondary-white;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
     border-radius: 0.75rem;
     padding: 2rem;
-    width: 30%;
+    width: 40%;
   }
   &__close {
     border: none;
+    outline: 1px solid rgb(95, 95, 95);
+    border-radius: 50%;
+    font-size: 1rem;
     font-weight: 600;
     color: $darkblue;
     &-wrapper {
@@ -42,22 +45,31 @@
     background-color: $darkblue;
     text-transform: uppercase;
     &--cancel {
-        background-color: $orange;
+      background-color: $orange;
     }
     &-wrapper {
-        display: flex;
-        justify-content: flex-end;
+      display: flex;
+      justify-content: flex-end;
     }
+  }
+  &__label {
+    font-size: 1.3rem;
   }
   &__body {
     background-color: #fafafa;
     font-family: Roboto;
-    height: 10rem;
+    height: 2rem;
     width: 100%;
-    resize: none;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 1rem;
     &:focus {
       outline: 0.125rem solid $darkblue;
       box-shadow: 0 0 0.75rem #76a7db;
     }
+  }
+  &__content {
+    height: 5rem;
+    resize: none;
   }
 }

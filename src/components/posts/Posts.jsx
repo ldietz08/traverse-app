@@ -1,12 +1,12 @@
 import "../../pages/bulletin/Bulletin.scss";
-import EditModal from "../edit-modal/EditModal";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../assets/icons/user.png";
 import Envelope from "../../assets/icons/envelope.svg";
 import Trash from "../../assets/icons/trash-can.svg";
-import Edit from "../../assets/icons/edit.svg";
-import Hikers from "../../assets/images/hikers.png";
+import Edit from "../../assets/icons/edit-icon.svg";
+import Hikers from "../../assets/images/hikers-animated.png";
+import EditModal from "../../components/edit-modal/EditModal";
 import { db, auth } from "../../components/config/firebase";
 import {
   getDocs,
@@ -20,9 +20,10 @@ import {
 export default function Posts() {
   const navigate = useNavigate();
 
-  //   const [users, setUsers] = useState([]);
-  const [openMessage, setOpenMessage] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [updatedPost, setUpdatedPost] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [fileUpload, setFileUpload] = useState(null);
 
   //Reference the collection
   const postsCollectionRef = collection(db, "posts");
@@ -73,15 +74,12 @@ export default function Posts() {
             <div className="bulletin__user-post">
               <p className="bulletin__content">{post.content}</p>
             </div>
-            <button
-              className="btn--edit"
-              onClick={() => {
-                setOpenMessage(true);
-              }}
-            >
+            <button className="btn--edit" onClick={() => setEditModal(true)}>
               <img src={Edit} alt="Edit icon" />
             </button>
-            {openMessage && <EditModal closeMessage={setOpenMessage} />}
+            {editModal === true && (
+              <EditModal post={post} setEditModal={setEditModal} />
+            )}
             <button className="btn--delete" onClick={() => deletePost(post.id)}>
               <img src={Trash} alt="Trash can icon" />
             </button>
@@ -245,6 +243,7 @@ export default function Posts() {
             ></img>
           </div>
         </div>
+        <div></div>
       </div>
     </section>
   );

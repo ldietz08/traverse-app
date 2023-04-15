@@ -141,6 +141,16 @@
     right: 1rem;
     bottom: 1rem;
   }
+  &--edit {
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    height: 2.3rem;
+    width: 2.3rem;
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+  }
   &--msg {
     background-color: whitesmoke;
     border: none;

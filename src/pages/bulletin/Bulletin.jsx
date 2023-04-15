@@ -1,57 +1,20 @@
 import "./Bulletin.scss";
 import Posts from "../../components/posts/Posts";
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import User from "../../assets/icons/user.png";
 import Envelope from "../../assets/icons/envelope.svg";
 import Trash from "../../assets/icons/trash-can.svg";
 import Hikers from "../../assets/images/hikers-animated.png";
 import { db, auth } from "../../components/config/firebase";
-import {
-  getDocs,
-  collection,
-  addDoc,
-  doc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Bulletin() {
-  const navigate = useNavigate();
-
   const [userName, setUserName] = useState("");
   const [hikeName, setHikeName] = useState("");
   const [userPost, setUserPost] = useState("");
 
   //Reference the collection
   const postsCollectionRef = collection(db, "posts");
-
-  const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
-  };
-
-  const updatePostContent = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await updateDoc(postDoc, { content: updatedPost });
-  };
-
-  const getPosts = async () => {
-    try {
-      const data = await getDocs(postsCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setPosts(filteredData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, [deletePost]);
 
   const addPost = async (e) => {
     e.preventDefault();
@@ -64,7 +27,6 @@ export default function Bulletin() {
       });
       const form = document.querySelector(".form");
       form.reset();
-      getPosts();
     } catch (err) {
       console.log(err);
     }
