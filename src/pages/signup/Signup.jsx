@@ -34,7 +34,7 @@ export default function Login() {
 
   return (
     <section className="signup__container">
-      <div className="signup__form">
+      <form className="signup__form">
         <h2 className="signup__title">Sign up</h2>
         <label className="signup__form-label" htmlFor="email">
           Email
@@ -65,7 +65,7 @@ export default function Login() {
             LOGIN
           </Link>
         </div>
-      </div>
+      </form>
     </section>
   );
 }

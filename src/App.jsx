@@ -13,7 +13,6 @@ import "./App.scss";
 
 export default function App() {
   const [hikes, setHikes] = useState([]);
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   const API_URL = `https://developer.nps.gov/api/v1/thingstodo?q=hiking&limit=30&api_key=${
     import.meta.env.VITE_PARKS_API_KEY
@@ -34,7 +33,7 @@ export default function App() {
     <>
       <div className="App">
         <BrowserRouter>
-          <Header setIsAuth={setIsAuth} isAuth={isAuth} />
+          <Header />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="login" element={<Login />} />

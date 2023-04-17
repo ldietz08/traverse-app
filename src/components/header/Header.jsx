@@ -1,20 +1,38 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.scss";
 import TraverseLogo from "../../assets/logo/traverse-logo.png";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../components/config/firebase";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import UserLogo from "../../assets/icons/user-solid.svg";
 
-export default function Header() {
+export default function Header(props) {
+  const [isAuth, setIsAuth] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuth(user);
+      } else {
+        setIsAuth(null);
+      }
+    });
+    return () => {
+      listen();
+    };
+  }, []);
+
   const logout = async () => {
     try {
       await signOut(auth);
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -40,20 +58,7 @@ export default function Header() {
           </button>
           <nav className={`navBar ${showMenu ? "show" : ""}`}>
             <ul className="navBar__list">
-              {!auth && (
-                <>
-                  <Link className="navBar__list-link" to="/">
-                    <li className="navBar__list-item">Home</li>
-                  </Link>
-                  <Link className="navBar__list-link" to="/favorites">
-                    <li className="navBar__list-item">Favorites</li>
-                  </Link>
-                  <Link className="navBar__list-link" to="/bulletin">
-                    <li className="navBar__list-item">Bulletin</li>
-                  </Link>
-                </>
-              )}
-              {auth ? (
+              {!isAuth ? (
                 <>
                   <Link className="navBar__list-link" to="/login">
                     <li className="navBar__list-item navBar__auth">Login</li>
@@ -63,14 +68,34 @@ export default function Header() {
                   </Link>
                 </>
               ) : (
-                <Link className="navBar__list-link" to="/login">
-                  <button
-                    onClick={logout}
-                    className="navBar__list-item navBar__auth"
-                  >
-                    Logout
-                  </button>
-                </Link>
+                <>
+                  {/* <div className="navBar__list-email">
+                    <p className="navBar__email">{`Signed in as: ${isAuth.email}`}</p>
+                  </div> */}
+                  <Link className="navBar__list-link" to="/">
+                    <li className="navBar__list-item">Home</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/favorites">
+                    <li className="navBar__list-item">Favorites</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/bulletin">
+                    <li className="navBar__list-item">Bulletin</li>
+                  </Link>
+                  <Link className="navBar__list-link" to="/profile">
+                    <li className="navBar__list-item">
+                      <img src={UserLogo} className="navBar__user" />
+                    </li>
+                  </Link>
+
+                  <Link className="navBar__list-link" to="/login">
+                    <button
+                      onClick={logout}
+                      className="navBar__list-item navBar__auth"
+                    >
+                      Logout
+                    </button>
+                  </Link>
+                </>
               )}
             </ul>
           </nav>

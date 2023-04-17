@@ -41,19 +41,30 @@
     list-style: none;
     margin: 0;
     padding-bottom: 1.5rem;
-  }
-  &__list-item {
-    color: whitesmoke;
-    font-weight: bold;
-    padding: 1rem 1rem;
-    &:hover {
-      color: #5184ae;
-      transition: 0.2s ease;
+    &-item {
+      color: whitesmoke;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      &:hover {
+        color: #5184ae;
+        transition: 0.2s ease;
+      }
+    }
+    &-link {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+    &-email {
+      display: flex;
+      align-items: center;
     }
   }
-  &__list-link {
-    text-decoration: none;
-    color: whitesmoke;
+  &__email {
+    color: rgb(193, 71, 71);
+    font-size: 0.8rem;
+  }
+  &__user {
+    height: 1.5rem;
   }
   &__auth {
     margin: 0.5rem;
