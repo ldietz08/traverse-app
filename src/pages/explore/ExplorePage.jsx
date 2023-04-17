@@ -1,33 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "./ExplorePage.scss";
 import HeartSolid from "../../assets/icons/heart-solid.svg";
 import Heart from "../../assets/icons/heart-regular.svg";
 
-export default function ExplorePage() {
+export default function ExplorePage({ hikes }) {
   const [query, setQuery] = useState();
-  const [hikes, setHikes] = useState([]);
 
   // const checkFaves = (id) => {
   //   const boolean = favorites.some((hike) => hike.id === id);
   //   return boolean;
   // };
-
-  const API_URL = `https://developer.nps.gov/api/v1/thingstodo?q=hiking&limit=30&api_key=${
-    import.meta.env.VITE_PARKS_API_KEY
-  }`;
-
-  useEffect(() => {
-    axios
-      .get(API_URL)
-      .then((response) => {
-        setHikes(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <>
