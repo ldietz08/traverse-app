@@ -10,7 +10,7 @@ export default function LandingPage() {
       <div className="main__body">
         <h1 className="main__title">Discover Your Next Adventure</h1>
         <p className="main__text">
-          Find new hiking trails and connect with fellow hikers.
+          Find new trails and stay up to date on your favorites.
         </p>
         <Link to="/signup">
           <Button text="Get Started" />

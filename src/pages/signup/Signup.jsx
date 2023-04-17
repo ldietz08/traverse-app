@@ -17,7 +17,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/hero");
+      navigate("/explore");
     } catch (err) {
       console.error(err);
     }
@@ -26,6 +26,7 @@ export default function Login() {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+      navigate("/explore");
     } catch (err) {
       console.error(err);
     }
