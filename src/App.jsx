@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import LandingPage from "./pages/landing-page/LandingPage";
 import ExplorePage from "./pages/explore/ExplorePage";
+import Favorites from "./components/favorites/Favorites";
 import Auth from "./pages/login/Login";
 import Bulletin from "./pages/bulletin/Bulletin";
 import Footer from "./components/footer/Footer";
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="explore" element={<ExplorePage hikes={hikes} />} />
             <Route path="bulletin" element={<Bulletin />} />
+            <Route path="favorites" element={<Favorites hikes={hikes} />} />
           </Routes>
           <Footer />
         </BrowserRouter>

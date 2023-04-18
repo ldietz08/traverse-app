@@ -90,6 +90,7 @@
     height: 12rem;
     width: 100%;
     object-fit: cover;
+    position: relative;
   }
   &__title {
     margin: 0;
@@ -99,11 +100,16 @@
   &__location {
     margin: 0;
     text-align: center;
-    padding: 0 1rem;
+    padding: 1rem;
   }
+  &__duration {
+    text-align: center;
+    margin-top: 0;
+  }
+
   &__fave {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
   &__button {
