@@ -23,7 +23,6 @@ export default function Posts() {
   const [editModal, setEditModal] = useState(false);
   const [updatedPost, setUpdatedPost] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [fileUpload, setFileUpload] = useState(null);
 
   //Reference the collection
   const postsCollectionRef = collection(db, "posts");
