@@ -95,21 +95,17 @@
   &__title {
     margin: 0;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
   &__location {
-    margin: 0;
+    margin-top: 0.5rem;
+    font-weight: 100;
     text-align: center;
-    padding: 1rem;
-  }
-  &__duration {
-    text-align: center;
-    margin-top: 0;
   }
 
   &__fave {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
   }
   &__button {

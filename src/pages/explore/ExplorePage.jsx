@@ -4,8 +4,9 @@ import HeartSolid from "../../assets/icons/heart-solid.svg";
 import Heart from "../../assets/icons/heart-regular.svg";
 import { useAppContext } from "../../components/context/AppContext";
 import "./ExplorePage.scss";
+import { hikes } from "../../data/hikes";
 
-export default function ExplorePage({ hikes }) {
+export default function ExplorePage() {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
 
   const checkFaves = (id) => {
@@ -29,11 +30,11 @@ export default function ExplorePage({ hikes }) {
             <div className="card__body">
               <img
                 className="card__img"
-                src={hike.images[0].url}
+                src={hike.image}
                 alt="Moutainous region"
               ></img>
-              <h2 className="card__title">{hike.location}</h2>
               <div className="card__fave">
+                <h2 className="card__title">{hike.name}</h2>
                 {checkFaves(hike.id) ? (
                   <button
                     className="card__btn-fav"
@@ -54,13 +55,14 @@ export default function ExplorePage({ hikes }) {
                   </button>
                 )}
               </div>
-              {hike.duration ? (
-                <p className="card__duration">Duration: {hike.duration}</p>
-              ) : null}
-              <p className="card__location">{hike.shortDescription}</p>
             </div>
+            <h2 className="card__location">{hike.location}</h2>
+            <Link to="/info">
+              <button className="card__button">View More</button>
+            </Link>
           </div>
         ))}
+        <div></div>
       </section>
     </>
   );
