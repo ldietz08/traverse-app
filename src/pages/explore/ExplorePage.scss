@@ -82,7 +82,6 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
   transition: tranform 200ms ease-in;
 
@@ -96,6 +95,17 @@
     margin: 0;
     text-align: center;
     padding: 0.5rem 1rem;
+  }
+  &__description {
+    padding: 0 1rem;
+  }
+  &__info {
+    text-align: center;
+    padding: 1rem;
+  }
+  &__details {
+    font-weight: 700;
+    padding: 0.5rem 0.2rem;
   }
   &__location {
     margin-top: 0.5rem;

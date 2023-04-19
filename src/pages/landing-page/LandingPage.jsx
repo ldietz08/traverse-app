@@ -8,9 +8,9 @@ export default function LandingPage() {
   return (
     <main className="main">
       <div className="main__body">
-        <h1 className="main__title">Discover Your Next Adventure</h1>
+        <h1 className="main__title">Discover your next adventure</h1>
         <p className="main__text">
-          Find new trails and stay up to date on your favorites.
+          Find new trails while keeping your go-to routes in the loop!
         </p>
         <Link to="/signup">
           <Button text="Get Started" />

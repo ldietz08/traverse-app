@@ -23,7 +23,7 @@ export const hikes = [
     season: "July-October",
     difficulty: "Difficult",
     description:
-      "Reaching the summit requires a technical climb, but hikers are well rewarded with views of Howe Sound. Traversing through dense forest and into the Coast Range Alpine is equally stunning. This is an in-and-out hike along the same route, which will deposit you back at your vehicle.",
+      "Reaching the summit requires a technical climb, but hikers are well rewarded with views of Howe Sound. Traversing through dense forest and into the Coast Range Alpine is equally stunning. This is an in-and-out hike along the same route, which will deposit you back at your vehicle. The trail is steep and rocky, and requires some scrambling and climbing over boulders.The trail begins in the forest, and hikers will climb steadily uphill for several hours before reaching a saddle between the two peaks. ",
   },
   {
     id: "927fh4bc-vdx3-13d4-0f6d-c834a62455d5",

@@ -35,6 +35,7 @@
 }
 
 .navBar {
+  z-index: 999;
   &__list {
     display: flex;
     flex-direction: column;
