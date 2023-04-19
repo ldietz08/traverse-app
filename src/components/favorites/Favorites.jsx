@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../components/context/AppContext";
 import HeartSolid from "../../assets/icons/heart-solid.svg";
 import Heart from "../../assets/icons/heart-regular.svg";
+import { hikes } from "../../data/hikes";
 
-const Favorites = ({ hikes }) => {
+const Favorites = () => {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
   const checkFaves = (id) => {
     const boolean = favorites.some((hike) => hike.id === id);
@@ -24,7 +25,7 @@ const Favorites = ({ hikes }) => {
                 <div className="card__body">
                   <img
                     className="card__img"
-                    src={hike.images[0].url}
+                    src={hike.image}
                     alt="Moutainous region"
                   ></img>
                   <div className="card__fave">
@@ -54,11 +55,6 @@ const Favorites = ({ hikes }) => {
                     )}
                   </div>
                   <p className="card__location">{hike.location}</p>
-                </div>
-                <div>
-                  <Link to={`${hike.id}`}>
-                    <button className="card__button">View More</button>
-                  </Link>
                 </div>
               </div>
             ))

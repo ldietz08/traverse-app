@@ -7,7 +7,7 @@ import { auth } from "../../components/config/firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import UserLogo from "../../assets/icons/user-solid.svg";
 
-export default function Header(props) {
+export default function Header() {
   const [isAuth, setIsAuth] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
@@ -61,9 +61,18 @@ export default function Header(props) {
               {!isAuth ? (
                 <>
                   <Link className="navBar__list-link" to="/login">
-                    <li className="navBar__list-item navBar__auth">Login</li>
+                    <li
+                      className="navBar__list-item navBar__auth"
+                      onClick={() => setShowMenu(false)}
+                    >
+                      Login
+                    </li>
                   </Link>
-                  <Link className="navBar__list-link" to="/signup">
+                  <Link
+                    className="navBar__list-link"
+                    to="/signup"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item navBar__auth">Sign up</li>
                   </Link>
                 </>
@@ -72,22 +81,48 @@ export default function Header(props) {
                   {/* <div className="navBar__list-email">
                     <p className="navBar__email">{`Signed in as: ${isAuth.email}`}</p>
                   </div> */}
-                  <Link className="navBar__list-link" to="/">
+                  <Link
+                    className="navBar__list-link"
+                    to="/"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Home</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/favorites">
+                  <Link
+                    className="navBar__list-link"
+                    to="/favorites"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Favorites</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/bulletin">
+                  <Link
+                    className="navBar__list-link"
+                    to="/explore"
+                    onClick={() => setShowMenu(false)}
+                  >
+                    <li className="navBar__list-item">Explore</li>
+                  </Link>
+                  <Link
+                    className="navBar__list-link"
+                    to="/bulletin"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Bulletin</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/profile">
+                  <Link
+                    className="navBar__list-link"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">
                       <img src={UserLogo} className="navBar__user" />
                     </li>
                   </Link>
 
-                  <Link className="navBar__list-link" to="/login">
+                  <Link
+                    className="navBar__list-link"
+                    to="/"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <button
                       onClick={logout}
                       className="navBar__list-item navBar__auth"
