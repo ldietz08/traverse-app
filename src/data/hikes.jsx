@@ -1,7 +1,7 @@
 export const hikes = [
   {
     id: "h72g9f4c-02c4-44d4-2f94-bmcgs72j93g",
-    image: "../../public/images/watersprite.jpg",
+    image: "/images/watersprite.jpg",
     name: "Watersprite Lake",
     location: "Squamish",
     length: "17km",
@@ -14,7 +14,7 @@ export const hikes = [
   },
   {
     id: "2b7ac233-1b8f-4186-8037-709a0af56ac8",
-    image: "../../public/images/lions.jpeg",
+    image: "/images/lions.jpeg",
     name: "The Lions",
     location: "West Vancouver",
     length: "14.6km",
@@ -27,7 +27,7 @@ export const hikes = [
   },
   {
     id: "927fh4bc-vdx3-13d4-0f6d-c834a62455d5",
-    image: "../../public/images/stmarks.jpeg",
+    image: "/images/stmarks.jpeg",
 
     name: "St.Mark's Summit",
     location: "West Vancouver",
@@ -41,7 +41,7 @@ export const hikes = [
   },
   {
     id: "1d85a260-a7f9-444d-8cee-9bc343453e7b",
-    image: "../../public/images/chief.jpeg",
+    image: "/images/chief.jpeg",
     name: "Stawamus Chief",
     location: "Squamish",
     length: "7km",
@@ -54,7 +54,7 @@ export const hikes = [
   },
   {
     id: "7b302780-9350-4f62-92ed-60d260749836",
-    image: "../../public/images/wedgemount.jpeg",
+    image: "/images/wedgemount.jpeg",
     name: "Wedgemount Lake",
     location: "Whistler",
     length: "12km",
@@ -67,7 +67,7 @@ export const hikes = [
   },
   {
     id: "b775h6uc-7dkj-44d4-a46d-b782362459t2",
-    image: "../../public/images/grouse.jpeg",
+    image: "/images/grouse.jpeg",
     name: "Grouse Grind",
     location: "North Vancouver",
     length: "3km",
@@ -80,7 +80,7 @@ export const hikes = [
   },
   {
     id: "b775529f4c-7d96-41d4-a26d-b9d34yf834",
-    image: "../../public/images/garibaldi.jpeg",
+    image: "/images/garibaldi.jpeg",
     name: "Garibaldi Lake",
     location: "Squamish",
     length: "3km",
@@ -93,7 +93,7 @@ export const hikes = [
   },
   {
     id: "b9450f4c-7d42-13d4-a26d-b953a62455d3",
-    image: "../../public/images/halbrich.jpeg",
+    image: "/images/halbrich.jpeg",
     name: "Al's Halbrich Ridge",
     location: "Squamish",
     length: "8km",
@@ -106,7 +106,7 @@ export const hikes = [
   },
   {
     id: "b7759f4c-7d96-44d4-a26d-b780a6849s1f",
-    image: "../../public/images/highnote.jpeg",
+    image: "/images/highnote.jpeg",
     name: "High Note Trail",
     location: "Whistler",
     length: "9.5km",
@@ -119,7 +119,7 @@ export const hikes = [
   },
   {
     id: "b9039f4c-dfj2-23fn-a30d-b293a62455d3",
-    image: "../../public/images/seymour.jpeg",
+    image: "/images/seymour.jpeg",
     name: "Mount Seymour",
     location: "West Vancouver",
     length: "9km",
@@ -132,7 +132,7 @@ export const hikes = [
   },
   {
     id: "8b3gcx0c-9g3n-024m-a26d-j3b6n1m8v9d1",
-    image: "../../public/images/lynn.jpeg",
+    image: "/images/lynn.jpeg",
     name: "Lynn Canyon",
     location: "North Vancouver",
     length: "10km",
@@ -145,7 +145,7 @@ export const hikes = [
   },
   {
     id: "93n7vs4g-02c4-8h50-1fc5-b02h6x4a2m1",
-    image: "../../public/images/bowen.jpg",
+    image: "/images/bowen.jpg",
     name: "Bowen Lookout",
     location: "Cypress Hill",
     length: "4km",
@@ -158,7 +158,7 @@ export const hikes = [
   },
   {
     id: "9h3bc67s-c9x2-0s3c-a26d-b83g6a01n4j",
-    image: "../../public/images/bcmc.jpeg",
+    image: "/images/bcmc.jpeg",
     name: "BCMC Trail",
     location: "North Vancouver",
     length: "3km",
@@ -171,7 +171,7 @@ export const hikes = [
   },
   {
     id: "ls8d63hf-02c4-9n5l-2f94-b780839fj24",
-    image: "../../public/images/crown.jpeg",
+    image: "/images/crown.jpeg",
     name: "Crown Mountain",
     location: "North Vancouver",
     length: "9.8km",
@@ -184,7 +184,7 @@ export const hikes = [
   },
   {
     id: "8hd69f4c-02c4-9n47-2f94-b28f6x7z81m",
-    image: "../../public/images/hollyburn.jpeg",
+    image: "/images/hollyburn.jpeg",
     name: "Hollyburn Mountain",
     location: "West Vancouver",
     length: "7km",
@@ -197,7 +197,7 @@ export const hikes = [
   },
   {
     id: "k9db3jcs-02c4-44d4-2f94-b01h7z8m3cs",
-    image: "../../public/images/elfin-lakes.jpg",
+    image: "/images/elfin-lakes.jpg",
     name: "Elfin Lakes",
     location: "Squamish",
     length: "22km",
