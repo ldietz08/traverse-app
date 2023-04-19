@@ -72,16 +72,39 @@ export default function Header(props) {
                   {/* <div className="navBar__list-email">
                     <p className="navBar__email">{`Signed in as: ${isAuth.email}`}</p>
                   </div> */}
-                  <Link className="navBar__list-link" to="/">
+                  <Link
+                    className="navBar__list-link"
+                    to="/"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Home</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/favorites">
+                  <Link
+                    className="navBar__list-link"
+                    to="/explore"
+                    onClick={() => setShowMenu(false)}
+                  >
+                    <li className="navBar__list-item">Explore</li>
+                  </Link>
+                  <Link
+                    className="navBar__list-link"
+                    to="/favorites"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Favorites</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/bulletin">
+                  <Link
+                    className="navBar__list-link"
+                    to="/bulletin"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">Bulletin</li>
                   </Link>
-                  <Link className="navBar__list-link" to="/profile">
+                  <Link
+                    className="navBar__list-link"
+                    to="/profile"
+                    onClick={() => setShowMenu(false)}
+                  >
                     <li className="navBar__list-item">
                       <img src={UserLogo} className="navBar__user" />
                     </li>
@@ -89,7 +112,10 @@ export default function Header(props) {
 
                   <Link className="navBar__list-link" to="/login">
                     <button
-                      onClick={logout}
+                      onClick={() => {
+                        setShowMenu(false);
+                        logout();
+                      }}
                       className="navBar__list-item navBar__auth"
                     >
                       Logout
