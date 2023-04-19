@@ -1,13 +1,12 @@
 # TraVerse Hiking App
 
-<!-- **Link to project:** -->
+**_TraVerse is a community-based hiking app that allows hiking enthusiasts to stay up to date on their favorite trails. This app has full Firebase CRUD functionality and authentication. _**
 
-<!-- ![alt tag]() -->
+**https://hiking-app-370707.web.app/**
 
-## How It's Made:
+## Tech used
 
-**Tech used:** HTML, CSS, JavaScript, React, Firebase
-
-## Optimizations
-
-## Lessons Learned:
+- React.js
+- Sass
+- Firebase
+- Vite
