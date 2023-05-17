@@ -18,7 +18,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/explore");
+      navigate("/hikes");
     } catch (err) {
       console.error(err);
     }

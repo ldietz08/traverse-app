@@ -7,6 +7,8 @@ import Trash from "../../assets/icons/trash-can.svg";
 import Hikers from "../../assets/images/hikers-animated.png";
 import { db, auth } from "../../components/config/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 export default function Bulletin() {
   const [userName, setUserName] = useState("");
@@ -15,6 +17,25 @@ export default function Bulletin() {
 
   //Reference the collection
   const postsCollectionRef = collection(db, "posts");
+
+  const options = [
+    "Watersprite Lake",
+    "The Lions",
+    "St.Mark's Summit",
+    "Stawamus Chief",
+    "Wedgemount Lake",
+    "Grouse Grind",
+    "Garibaldi Lake",
+    "Al's Halbrich Ridge",
+    "High Note Trail",
+    "Mount Seymour",
+    "Lynn Canyon",
+    "Bowen Lookout",
+    "BCMC Trail",
+    "Crown Mountain",
+    "Hollyburn Mountain",
+    "Elfin Lakes",
+  ];
 
   const addPost = async (e) => {
     e.preventDefault();
@@ -25,12 +46,14 @@ export default function Bulletin() {
         content: userPost,
         userId: auth?.currentUser?.uid,
       });
-      const form = document.querySelector(".form");
+      const form = document.querySelector(".form"); //switch to useRef
       form.reset();
     } catch (err) {
       console.log(err);
     }
   };
+
+  // Add error handling, nullish coalescing
   return (
     <>
       <section className="bulletin">
@@ -46,11 +69,11 @@ export default function Bulletin() {
                   setUserName(e.target.value);
                 }}
               />
-              <input
-                className="bulletin__input"
-                placeholder="Hike"
+              <Dropdown
+                options={options}
+                placeholder="Select a hike"
                 onChange={(e) => {
-                  setHikeName(e.target.value);
+                  setHikeName(e.value);
                 }}
               />
               <input

@@ -131,7 +131,7 @@ export default function Posts() {
           <div>
             <h1>Carlos</h1>
           </div>
-          <div className="bulletin__date">
+          <div className="bulletin__date"> 
             <h1>11/24/22</h1>
           </div>
         </div>
