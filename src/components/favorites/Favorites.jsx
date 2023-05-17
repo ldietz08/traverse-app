@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../components/context/AppContext";
 import HeartSolid from "../../assets/icons/heart-solid.svg";
 import Heart from "../../assets/icons/heart-regular.svg";
-import { hikes } from "../../data/hikes";
 
-const Favorites = () => {
+const Favorites = ({ hikes }) => {
   const { favorites, addToFavorites, removeFromFavorites } = useAppContext();
   const checkFaves = (id) => {
     const boolean = favorites.some((hike) => hike.id === id);
@@ -15,7 +14,7 @@ const Favorites = () => {
   return (
     <>
       <section className="favorites__wrapper">
-        <Link to="/explore">
+        <Link to="/hikes">
           <button className="favorites__btn">Back</button>
         </Link>
         <div className="favorites">

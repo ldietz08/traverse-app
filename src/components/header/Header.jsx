@@ -97,7 +97,7 @@ export default function Header() {
                   </Link>
                   <Link
                     className="navBar__list-link"
-                    to="/explore"
+                    to="/hikes"
                     onClick={() => setShowMenu(false)}
                   >
                     <li className="navBar__list-item">Explore</li>

@@ -9,7 +9,7 @@ export const useAppContext = () => {
   if (context === undefined) {
     throw new Error("An error has occurred");
   }
-  return context;
+  return context; 
 };
 
 const AppContextProvider = ({ children }) => {
